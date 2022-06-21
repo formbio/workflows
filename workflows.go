@@ -11,6 +11,9 @@ import (
 var mainFound bool
 
 func Exec(repoDir string) error {
+	if repoDir == "" || repoDir == "." {
+		repoDir, _ = os.Getwd()
+	}
 	err := filepath.Walk(repoDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
