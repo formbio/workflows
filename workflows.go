@@ -19,13 +19,14 @@ func Exec(repoDir string) error {
 			return err
 		}
 
-		if info.IsDir() && info.Name() == ".github" {
+		// skip any dot files or folders
+		if strings.HasPrefix(info.Name(), ".") {
 			return filepath.SkipDir
 		}
 
-		if strings.Contains(path, "/workflows/") {
-			fmt.Println(path)
-		}
+		// if strings.Contains(path, "/workflows/") {
+		fmt.Println(path)
+		// }
 		mainFound = mainFound || info.Name() == "main.nf"
 
 		return nil
