@@ -21,6 +21,7 @@ func Exec(repoDir string) error {
 
 		// skip any dot files or folders
 		if strings.HasPrefix(info.Name(), ".") {
+			fmt.Println("skipping " + path)
 			return filepath.SkipDir
 		}
 
