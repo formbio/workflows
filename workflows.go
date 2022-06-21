@@ -19,6 +19,8 @@ func Exec(repoDir string) error {
 			return err
 		}
 
+		fmt.Println(path, info.Name())
+
 		// skip any dot files or folders
 		if strings.HasPrefix(info.Name(), ".") {
 			fmt.Println("skipping " + path)
@@ -26,8 +28,9 @@ func Exec(repoDir string) error {
 		}
 
 		// if strings.Contains(path, "/workflows/") {
-		fmt.Println(path)
+		fmt.Println(path, info.Name())
 		// }
+
 		mainFound = mainFound || info.Name() == "main.nf"
 
 		return nil
