@@ -19,9 +19,8 @@ func Exec(repoDir string) error {
 			return err
 		}
 
-		if strings.Contains(path, "/.github/") {
-			fmt.Println("skipping " + path)
-			return nil
+		if info.IsDir() && info.Name() == ".github" {
+			return filepath.SkipDir
 		}
 
 		if strings.Contains(path, "/workflows/") {
