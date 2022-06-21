@@ -1,4 +1,4 @@
-package upload
+package workflows
 
 import (
 	"fmt"
@@ -30,4 +30,5 @@ func Exec(repoDir string) error {
 	if !mainFound {
 		log.Fatalln("main.nf not found")
 	}
+	return nil
 }
